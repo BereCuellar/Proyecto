@@ -20,19 +20,17 @@
                     <h:outputText value="#{bundle.ViewCategoriaLabel_nombre}"/>
                     <h:outputText value="#{categoriaController.selected.nombre}" title="#{bundle.ViewCategoriaTitle_nombre}"/>
                 </h:panelGrid>
-                <br />
-                <h:commandLink action="#{categoriaController.destroyAndView}" value="#{bundle.ViewCategoriaDestroyLink}"/>
-                <br />
-                <br />
-                <h:link outcome="Edit" value="#{bundle.ViewCategoriaEditLink}"/>
-                <br />
-                <h:commandLink action="#{categoriaController.prepareCreate}" value="#{bundle.ViewCategoriaCreateLink}" />
-                <br />
-                <h:commandLink action="#{categoriaController.prepareList}" value="#{bundle.ViewCategoriaShowAllLink}"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.ViewCategoriaIndexLink}"/>
-
+                <h:panelGrid columns="5">
+                <h:commandButton action="#{categoriaController.destroyAndView}" value="#{bundle.ViewCategoriaDestroyLink}"/>
+               
+                <h:commandButton action="Edit" value="#{bundle.ViewCategoriaEditLink}"/>
+                
+                <h:commandButton action="#{categoriaController.prepareCreate}" value="#{bundle.ViewCategoriaCreateLink}" />
+                
+                <h:commandButton action="#{categoriaController.prepareList}" value="#{bundle.ViewCategoriaShowAllLink}"/>
+               
+                <h:commandButton action="/admin/admin" value="#{bundle.ViewCategoriaIndexLink}" immediate="true"/>
+                </h:panelGrid>
             </h:form>
         </ui:define>
     </ui:composition>

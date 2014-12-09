@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
@@ -14,32 +15,40 @@
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateDisfrazLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{disfrazController.selected.id}" title="#{bundle.CreateDisfrazTitle_id}" required="true" requiredMessage="#{bundle.CreateDisfrazRequiredMessage_id}"/>
+                <p:panelGrid columns="2">
+                    
                     <h:outputLabel value="#{bundle.CreateDisfrazLabel_nombre}" for="nombre" />
-                    <h:inputText id="nombre" value="#{disfrazController.selected.nombre}" title="#{bundle.CreateDisfrazTitle_nombre}" required="true" requiredMessage="#{bundle.CreateDisfrazRequiredMessage_nombre}"/>
+                    <p:inputText id="nombre" value="#{disfrazController.selected.nombre}" title="#{bundle.CreateDisfrazTitle_nombre}" required="true" requiredMessage="#{bundle.CreateDisfrazRequiredMessage_nombre}"/>
                     <h:outputLabel value="#{bundle.CreateDisfrazLabel_talla}" for="talla" />
-                    <h:inputText id="talla" value="#{disfrazController.selected.talla}" title="#{bundle.CreateDisfrazTitle_talla}" required="true" requiredMessage="#{bundle.CreateDisfrazRequiredMessage_talla}"/>
+                    <p:selectOneMenu id="talla" value="#{disfrazController.selected.talla}" >
+                        <f:selectItem itemLabel="CH" itemValue="CH"/>
+                        <f:selectItem itemLabel="M" itemValue="M"/>
+                        <f:selectItem itemLabel="G" itemValue="G"/>
+                        <f:selectItem itemLabel="XG" itemValue="XG"/>
+                    </p:selectOneMenu>
                     <h:outputLabel value="#{bundle.CreateDisfrazLabel_descripcion}" for="descripcion" />
-                    <h:inputText id="descripcion" value="#{disfrazController.selected.descripcion}" title="#{bundle.CreateDisfrazTitle_descripcion}" required="true" requiredMessage="#{bundle.CreateDisfrazRequiredMessage_descripcion}"/>
+                    <p:inputText id="descripcion" value="#{disfrazController.selected.descripcion}" title="#{bundle.CreateDisfrazTitle_descripcion}" required="true" requiredMessage="#{bundle.CreateDisfrazRequiredMessage_descripcion}"/>
                     <h:outputLabel value="#{bundle.CreateDisfrazLabel_precio}" for="precio" />
-                    <h:inputText id="precio" value="#{disfrazController.selected.precio}" title="#{bundle.CreateDisfrazTitle_precio}" required="true" requiredMessage="#{bundle.CreateDisfrazRequiredMessage_precio}"/>
+                    <h:outputLabel>
+                         <p:spinner id="precio" required="true" min="100" max="10000"  value="#{disfrazController.selected.precio}">
+                            <p:tooltip for="precio" value="#{bundle.CreateDisfrazRequiredMessage_precio}"/>
+                        </p:spinner>
+                    </h:outputLabel>
                     <h:outputLabel value="#{bundle.CreateDisfrazLabel_existencia}" for="existencia" />
-                    <h:inputText id="existencia" value="#{disfrazController.selected.existencia}" title="#{bundle.CreateDisfrazTitle_existencia}" required="true" requiredMessage="#{bundle.CreateDisfrazRequiredMessage_existencia}"/>
+                    <p:inputText id="existencia" value="#{disfrazController.selected.existencia}" title="#{bundle.CreateDisfrazTitle_existencia}" required="true" requiredMessage="#{bundle.CreateDisfrazRequiredMessage_existencia}"/>
                     <h:outputLabel value="#{bundle.CreateDisfrazLabel_categoriaId}" for="categoriaId" />
-                    <h:selectOneMenu id="categoriaId" value="#{disfrazController.selected.categoriaId}" title="#{bundle.CreateDisfrazTitle_categoriaId}" required="true" requiredMessage="#{bundle.CreateDisfrazRequiredMessage_categoriaId}">
+                    <p:selectOneMenu id="categoriaId" value="#{disfrazController.selected.categoriaId}" >
                         <f:selectItems value="#{categoriaController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
+                    </p:selectOneMenu>
+                </p:panelGrid>
+                <h:panelGrid columns="3">
+              
+                <h:commandButton action="#{disfrazController.create}" value="#{bundle.CreateDisfrazSaveLink}" />
+                
+                <h:commandButton action="#{disfrazController.prepareList}" value="#{bundle.CreateDisfrazShowAllLink}" immediate="true"/>
+                
+                <h:commandButton action="#{disfrazController.prepareList}" value="Regresar" immediate="true"/>
                 </h:panelGrid>
-                <br />
-                <h:commandLink action="#{disfrazController.create}" value="#{bundle.CreateDisfrazSaveLink}" />
-                <br />
-                <br />
-                <h:commandLink action="#{disfrazController.prepareList}" value="#{bundle.CreateDisfrazShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.CreateDisfrazIndexLink}"/>
             </h:form>
         </ui:define>
     </ui:composition>

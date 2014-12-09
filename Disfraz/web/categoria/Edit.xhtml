@@ -16,19 +16,19 @@
             <h:form>
                 <h:panelGrid columns="2">
                     <h:outputLabel value="#{bundle.EditCategoriaLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{categoriaController.selected.id}" title="#{bundle.EditCategoriaTitle_id}" required="true" requiredMessage="#{bundle.EditCategoriaRequiredMessage_id}"/>
+                    <h:outputText id="id" value="#{categoriaController.selected.id}" title="#{bundle.EditCategoriaTitle_id}" />
                     <h:outputLabel value="#{bundle.EditCategoriaLabel_nombre}" for="nombre" />
                     <h:inputText id="nombre" value="#{categoriaController.selected.nombre}" title="#{bundle.EditCategoriaTitle_nombre}" required="true" requiredMessage="#{bundle.EditCategoriaRequiredMessage_nombre}"/>
                 </h:panelGrid>
-                <h:commandLink action="#{categoriaController.update}" value="#{bundle.EditCategoriaSaveLink}"/>
-                <br />
-                <br />
-                <h:link outcome="View" value="#{bundle.EditCategoriaViewLink}"/>
-                <br />
-                <h:commandLink action="#{categoriaController.prepareList}" value="#{bundle.EditCategoriaShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.EditCategoriaIndexLink}" />
+                <h:panelGrid columns="4">
+                <h:commandButton action="#{categoriaController.update}" value="#{bundle.EditCategoriaSaveLink}"/>
+                
+                <h:commandButton action="View" value="#{bundle.EditCategoriaViewLink}"/>
+               
+                <h:commandButton action="#{categoriaController.prepareList}" value="#{bundle.EditCategoriaShowAllLink}" immediate="true"/>
+                
+                <h:commandButton action="/admin/admin" value="#{bundle.EditCategoriaIndexLink}" />
+                </h:panelGrid>
             </h:form>
         </ui:define>
     </ui:composition>

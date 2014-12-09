@@ -80,11 +80,11 @@
                         </h:column>
                     </h:dataTable>
                 </h:panelGroup>
-                <br />
-                <h:commandLink action="#{clienteController.prepareCreate}" value="#{bundle.ListClienteCreateLink}"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.ListClienteIndexLink}"/>
+                <h:panelGrid columns="2">
+                <h:commandButton action="#{clienteController.prepareCreate}" value="#{bundle.ListClienteCreateLink}"/>
+                
+                <h:commandButton action="/admin/admin" value="#{bundle.ListClienteIndexLink}"/>
+                </h:panelGrid>
             </h:form>
         </ui:define>
     </ui:composition>
