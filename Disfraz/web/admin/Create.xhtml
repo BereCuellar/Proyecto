@@ -26,14 +26,14 @@
                     <h:outputLabel value="#{bundle.CreateAdminLabel_tipo}" for="tipo" />
                     <h:inputText id="tipo" value="#{adminController.selected.tipo}" title="#{bundle.CreateAdminTitle_tipo}" required="true" requiredMessage="#{bundle.CreateAdminRequiredMessage_tipo}"/>
                 </h:panelGrid>
-                <br />
-                <h:commandLink action="#{adminController.create}" value="#{bundle.CreateAdminSaveLink}" />
-                <br />
-                <br />
-                <h:commandLink action="#{adminController.prepareList}" value="#{bundle.CreateAdminShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.CreateAdminIndexLink}"/>
+                <h:panelGrid columns="3">
+                
+                <h:commandButton action="#{adminController.create}" value="#{bundle.CreateAdminSaveLink}" />
+                
+                <h:commandButton action="#{adminController.prepareList}" value="#{bundle.CreateAdminShowAllLink}" immediate="true"/>
+                
+                <h:commandButton action="/admin/admin" value="#{bundle.CreateAdminIndexLink}" immediate="true"/>
+                </h:panelGrid>
             </h:form>
         </ui:define>
     </ui:composition>

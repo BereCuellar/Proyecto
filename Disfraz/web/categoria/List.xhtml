@@ -44,11 +44,12 @@
                         </h:column>
                     </h:dataTable>
                 </h:panelGroup>
-                <br />
-                <h:commandLink action="#{categoriaController.prepareCreate}" value="#{bundle.ListCategoriaCreateLink}"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.ListCategoriaIndexLink}"/>
+                <h:panelGrid columns="2">
+               
+                <h:commandButton action="#{categoriaController.prepareCreate}" value="#{bundle.ListCategoriaCreateLink}"/>
+                
+                <h:commandButton action="/admin/admin" value="#{bundle.ListCategoriaIndexLink}"/>
+                </h:panelGrid>
             </h:form>
         </ui:define>
     </ui:composition>

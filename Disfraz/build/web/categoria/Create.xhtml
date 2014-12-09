@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
@@ -15,19 +16,22 @@
             </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateCategoriaLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{categoriaController.selected.id}" title="#{bundle.CreateCategoriaTitle_id}" required="true" requiredMessage="#{bundle.CreateCategoriaRequiredMessage_id}"/>
+                    
                     <h:outputLabel value="#{bundle.CreateCategoriaLabel_nombre}" for="nombre" />
-                    <h:inputText id="nombre" value="#{categoriaController.selected.nombre}" title="#{bundle.CreateCategoriaTitle_nombre}" required="true" requiredMessage="#{bundle.CreateCategoriaRequiredMessage_nombre}"/>
+                    <p:inputText id="nombre" value="#{categoriaController.selected.nombre}" title="#{bundle.CreateCategoriaTitle_nombre}" required="true" requiredMessage="#{bundle.CreateCategoriaRequiredMessage_nombre}">
+                    <p:tooltip for="nombre" value="introduzca la categoria"/>
+                  </p:inputText>
+                    <p:message for="nombre"  />
+                    
                 </h:panelGrid>
-                <br />
-                <h:commandLink action="#{categoriaController.create}" value="#{bundle.CreateCategoriaSaveLink}" />
-                <br />
-                <br />
-                <h:commandLink action="#{categoriaController.prepareList}" value="#{bundle.CreateCategoriaShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.CreateCategoriaIndexLink}"/>
+                <h:panelGrid columns="3">
+                
+                <h:commandButton action="#{categoriaController.create()}" value="#{bundle.CreateCategoriaSaveLink}" />
+                
+                <h:commandButton action="#{categoriaController.prepareList}" value="#{bundle.CreateCategoriaShowAllLink}" immediate="true"/>
+                
+                <h:commandButton action="#{categoriaController.prepareList}" value="Regresar" immediate="true"/>
+                </h:panelGrid>
             </h:form>
         </ui:define>
     </ui:composition>

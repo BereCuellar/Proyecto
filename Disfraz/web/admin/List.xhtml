@@ -62,11 +62,11 @@
                         </h:column>
                     </h:dataTable>
                 </h:panelGroup>
-                <br />
-                <h:commandLink action="#{adminController.prepareCreate}" value="#{bundle.ListAdminCreateLink}"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.ListAdminIndexLink}"/>
+                <h:panelGrid columns="2">
+                <h:commandButton action="#{adminController.prepareCreate}" value="#{bundle.ListAdminCreateLink}"/>
+                
+                <h:commandButton action="/admin/admin" value="#{bundle.ListAdminIndexLink}"/>
+                </h:panelGrid>
             </h:form>
         </ui:define>
     </ui:composition>

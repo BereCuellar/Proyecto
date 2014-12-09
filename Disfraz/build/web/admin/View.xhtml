@@ -26,19 +26,17 @@
                     <h:outputText value="#{bundle.ViewAdminLabel_tipo}"/>
                     <h:outputText value="#{adminController.selected.tipo}" title="#{bundle.ViewAdminTitle_tipo}"/>
                 </h:panelGrid>
-                <br />
-                <h:commandLink action="#{adminController.destroyAndView}" value="#{bundle.ViewAdminDestroyLink}"/>
-                <br />
-                <br />
-                <h:link outcome="Edit" value="#{bundle.ViewAdminEditLink}"/>
-                <br />
-                <h:commandLink action="#{adminController.prepareCreate}" value="#{bundle.ViewAdminCreateLink}" />
-                <br />
-                <h:commandLink action="#{adminController.prepareList}" value="#{bundle.ViewAdminShowAllLink}"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.ViewAdminIndexLink}"/>
-
+                <h:panelGrid columns="5">
+                <h:commandButton action="#{adminController.destroyAndView}" value="#{bundle.ViewAdminDestroyLink}"/>
+                
+                <h:commandButton action="Edit" value="#{bundle.ViewAdminEditLink}"/>
+                
+                <h:commandButton action="#{adminController.prepareCreate}" value="#{bundle.ViewAdminCreateLink}" />
+                
+                <h:commandButton action="#{adminController.prepareList}" value="#{bundle.ViewAdminShowAllLink}"/>
+                
+                <h:commandButton action="/admin/admin" value="#{bundle.ViewAdminIndexLink}"/>
+                </h:panelGrid>
             </h:form>
         </ui:define>
     </ui:composition>

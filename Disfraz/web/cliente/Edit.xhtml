@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
@@ -14,33 +15,36 @@
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             <h:form>
-                <h:panelGrid columns="2">
+                <p:panelGrid columns="2">
                     <h:outputLabel value="#{bundle.EditClienteLabel_mail}" for="mail" />
-                    <h:inputText id="mail" value="#{clienteController.selected.mail}" title="#{bundle.EditClienteTitle_mail}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_mail}"/>
+                    <p:inputText id="mail" value="#{clienteController.selected.mail}" title="#{bundle.EditClienteTitle_mail}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_mail}" validatorMessage="Ingresar un email Valido">
+                     <f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$"/>
+                    </p:inputText>
                     <h:outputLabel value="#{bundle.EditClienteLabel_password}" for="password" />
-                    <h:inputText id="password" value="#{clienteController.selected.password}" title="#{bundle.EditClienteTitle_password}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_password}"/>
+                    <p:inputText id="password" value="#{clienteController.selected.password}" title="#{bundle.EditClienteTitle_password}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_password}"/>
                     <h:outputLabel value="#{bundle.EditClienteLabel_nombre}" for="nombre" />
-                    <h:inputText id="nombre" value="#{clienteController.selected.nombre}" title="#{bundle.EditClienteTitle_nombre}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_nombre}"/>
+                    <p:inputText id="nombre" value="#{clienteController.selected.nombre}" title="#{bundle.EditClienteTitle_nombre}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_nombre}"/>
                     <h:outputLabel value="#{bundle.EditClienteLabel_apellidos}" for="apellidos" />
-                    <h:inputText id="apellidos" value="#{clienteController.selected.apellidos}" title="#{bundle.EditClienteTitle_apellidos}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_apellidos}"/>
+                    <p:inputText id="apellidos" value="#{clienteController.selected.apellidos}" title="#{bundle.EditClienteTitle_apellidos}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_apellidos}"/>
                     <h:outputLabel value="#{bundle.EditClienteLabel_telefono}" for="telefono" />
-                    <h:inputText id="telefono" value="#{clienteController.selected.telefono}" title="#{bundle.EditClienteTitle_telefono}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_telefono}"/>
+                    <p:inputText id="telefono" value="#{clienteController.selected.telefono}" title="#{bundle.EditClienteTitle_telefono}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_telefono}"/>
                     <h:outputLabel value="#{bundle.EditClienteLabel_municipio}" for="municipio" />
-                    <h:inputText id="municipio" value="#{clienteController.selected.municipio}" title="#{bundle.EditClienteTitle_municipio}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_municipio}"/>
+                    <p:inputText id="municipio" value="#{clienteController.selected.municipio}" title="#{bundle.EditClienteTitle_municipio}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_municipio}"/>
                     <h:outputLabel value="#{bundle.EditClienteLabel_direccion}" for="direccion" />
-                    <h:inputText id="direccion" value="#{clienteController.selected.direccion}" title="#{bundle.EditClienteTitle_direccion}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_direccion}"/>
+                    <p:inputText id="direccion" value="#{clienteController.selected.direccion}" title="#{bundle.EditClienteTitle_direccion}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_direccion}"/>
                     <h:outputLabel value="#{bundle.EditClienteLabel_tarjetanumero}" for="tarjetanumero" />
-                    <h:inputText id="tarjetanumero" value="#{clienteController.selected.tarjetanumero}" title="#{bundle.EditClienteTitle_tarjetanumero}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_tarjetanumero}"/>
+                    <p:inputText id="tarjetanumero" value="#{clienteController.selected.tarjetanumero}" title="#{bundle.EditClienteTitle_tarjetanumero}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_tarjetanumero}"/>
+                </p:panelGrid>
+                <h:panelGrid columns="5">
+                <h:commandButton action="#{clienteController.update}" value="#{bundle.EditClienteSaveLink}"/>
+                
+                <h:commandButton action="View" value="#{bundle.EditClienteViewLink}"/>
+                
+                <h:commandButton action="#{clienteController.prepareList}" value="#{bundle.EditClienteShowAllLink}" immediate="true"/>
+                
+                <h:commandButton action="/admin/admin" value="#{bundle.EditClienteIndexLink}" />
+                 <h:commandButton action="List" value="Cancelar"/>
                 </h:panelGrid>
-                <h:commandLink action="#{clienteController.update}" value="#{bundle.EditClienteSaveLink}"/>
-                <br />
-                <br />
-                <h:link outcome="View" value="#{bundle.EditClienteViewLink}"/>
-                <br />
-                <h:commandLink action="#{clienteController.prepareList}" value="#{bundle.EditClienteShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.EditClienteIndexLink}" />
             </h:form>
         </ui:define>
     </ui:composition>

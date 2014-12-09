@@ -74,11 +74,10 @@
                         </h:column>
                     </h:dataTable>
                 </h:panelGroup>
-                <br />
-                <h:commandLink action="#{disfrazController.prepareCreate}" value="#{bundle.ListDisfrazCreateLink}"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.ListDisfrazIndexLink}"/>
+                <h:panelGrid columns="2">
+                <h:commandButton action="#{disfrazController.prepareCreate}" value="#{bundle.ListDisfrazCreateLink}"/>
+                <h:commandButton action="/admin/admin" value="#{bundle.ListDisfrazIndexLink}"/>
+                </h:panelGrid>
             </h:form>
         </ui:define>
     </ui:composition>
