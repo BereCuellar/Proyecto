@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        Cambiar Status
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="ID" for="id" />
+                    <h:inputText disabled="true" id="id" value="#{pedidoController.selected.id}" title="#{bundle.EditPedidoTitle_id}" required="true" requiredMessage="#{bundle.EditPedidoRequiredMessage_id}"/>
+                    
+                    <h:outputLabel value="Cantidad: " for="cantidad" />
+                    <h:inputText disabled="true" id="cantidad" value="#{pedidoController.selected.cantidad}" title="#{bundle.EditPedidoTitle_cantidad}" required="true" requiredMessage="#{bundle.EditPedidoRequiredMessage_cantidad}"/>
+                    
+                    <h:outputLabel value="Total" for="total" />
+                    <h:inputText disabled="true" id="total" value="#{pedidoController.selected.total}" title="#{bundle.EditPedidoTitle_total}" required="true" requiredMessage="#{bundle.EditPedidoRequiredMessage_total}"/>
+                    
+                    <h:outputLabel value="Fecha entrega: " for="fechaentrega" />
+                    <h:inputText id="fechaentrega" value="#{pedidoController.selected.fechaentrega}" title="#{bundle.EditPedidoTitle_fechaentrega}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    
+                    <h:outputLabel value="Numero Confirmación: " for="numeroconfirma" />
+                    <h:inputText disabled="true" id="numeroconfirma" value="#{pedidoController.selected.numeroconfirma}" title="#{bundle.EditPedidoTitle_numeroconfirma}" required="true" requiredMessage="#{bundle.EditPedidoRequiredMessage_numeroconfirma}"/>
+                    
+                    <h:outputLabel value="Cliente Mail: " for="clienteMail" />
+                    <h:inputText id="clienteMail" value="#{pedidoController.selected.clienteMail}" title="#{bundle.EditPedidoTitle_status}" />
+                    <h:outputText value="#{pedidoController.selected.clienteMail.nombre}"/>
+                    <h:outputText value="#{pedidoController.selected.clienteMail.apellidos}"/>
+                    
+                    <h:outputLabel value="Status" for="status" />
+                    <h:selectOneMenu id="status" value="#{pedidoController.selected.status}" title="#{bundle.EditPedidoTitle_clienteMail}" required="true" requiredMessage="#{bundle.EditPedidoRequiredMessage_clienteMail}">
+                        <f:selectItem itemValue="Pendiente" itemLabel="Pendiente" />
+                        <f:selectItem itemValue="Entregado" itemLabel="Entregado" />
+                    </h:selectOneMenu>
+                    
+                    
+                    
+                </h:panelGrid>
+                <h:commandLink action="#{pedidoController.updateStatus()}" value="#{bundle.EditPedidoSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="empleado" value="Regresar al Panel de Administración" />
+            </h:form>
+    </h:body>
+</html>
+
