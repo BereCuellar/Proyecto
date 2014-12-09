@@ -15,7 +15,7 @@
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             <h:form>
-                <p:panelGrid columns="2">
+                <h:panelGrid columns="2">
                     <h:outputLabel value="#{bundle.CreateClienteLabel_mail}" for="mail" />
                     <p:inputText id="mail" value="#{clienteController.selected.mail}" title="#{bundle.CreateClienteTitle_mail}" required="true" requiredMessage="#{bundle.CreateClienteRequiredMessage_mail}" validatorMessage="Correo Invalido">
                         <f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$"/>
@@ -27,27 +27,22 @@
                     <h:outputLabel value="#{bundle.CreateClienteLabel_apellidos}" for="apellidos" />
                     <p:inputText id="apellidos" value="#{clienteController.selected.apellidos}" title="#{bundle.CreateClienteTitle_apellidos}" required="true" requiredMessage="#{bundle.CreateClienteRequiredMessage_apellidos}"/>
                     <h:outputLabel value="#{bundle.CreateClienteLabel_telefono}" for="telefono" />
-                    
                     <p:inputMask id="telefono" title="#{bundle.CreateClienteTitle_telefono}" required="true" value="#{clienteController.selected.telefono}" mask="999-9-99-999" requiredMessage="#{bundle.CreateClienteRequiredMessage_telefono}">
-                            <p:tooltip for="telefono" value="introduzca el telefono entre 1 y 12 digitos"/>
-                        </p:inputMask>
+                        <p:tooltip for="telefono" value="introduzca el telefono entre 1 y 12 digitos"/>
+                    </p:inputMask>
                     <h:outputLabel value="#{bundle.CreateClienteLabel_municipio}" for="municipio" />
                     <p:inputText id="municipio" value="#{clienteController.selected.municipio}" title="#{bundle.CreateClienteTitle_municipio}" required="true" requiredMessage="#{bundle.CreateClienteRequiredMessage_municipio}"/>
                     <h:outputLabel value="#{bundle.CreateClienteLabel_direccion}" for="direccion" />
                     <p:inputText id="direccion" value="#{clienteController.selected.direccion}" title="#{bundle.CreateClienteTitle_direccion}" required="true" requiredMessage="#{bundle.CreateClienteRequiredMessage_direccion}"/>
                     <h:outputLabel value="#{bundle.CreateClienteLabel_tarjetanumero}" for="tarjetanumero" />
                     <p:inputText id="tarjetanumero" value="#{clienteController.selected.tarjetanumero}" title="#{bundle.CreateClienteTitle_tarjetanumero}" required="true" requiredMessage="#{bundle.CreateClienteRequiredMessage_tarjetanumero}"/>
-                </p:panelGrid>
+                </h:panelGrid>
                 <h:panelGrid columns="4">
-                <h:commandButton action="#{clienteController.create}" value="#{bundle.CreateClienteSaveLink}" />
-                
-                <h:commandButton action="#{clienteController.prepareList}" value="#{bundle.CreateClienteShowAllLink}" immediate="true"/>
-                
-                <h:commandButton action="#{clienteController.prepareList}" value="Regresar" immediate="true"/>
-                
+                    <h:commandButton action="#{clienteController.create}" value="#{bundle.CreateClienteSaveLink}" />
+                    <h:commandButton action="#{clienteController.prepareList}" value="#{bundle.CreateClienteShowAllLink}" immediate="true"/>
+                    <h:commandButton action="#{clienteController.prepareList}" value="Regresar" immediate="true"/>
                 </h:panelGrid>
             </h:form>
         </ui:define>
     </ui:composition>
-
 </html>

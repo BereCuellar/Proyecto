@@ -228,4 +228,69 @@ public class PedidoController implements Serializable {
 
     }
 
+    //////Metodo de validacion de tarjetas
+        public static boolean VerificarTarjeta(String tarjeta) {
+        int suma = 0;
+        boolean flag;
+        int y = 0;
+        int z = 0;
+        
+        for (int i = 1; i <= 16; i++) {
+            z = Integer.parseInt(String.valueOf(tarjeta.charAt(i)));
+            if ((i % 2) != 0) {
+
+                y = (z * 2);
+               // System.out.println("el valor de y impar es " + y);
+
+                if (y >= 10) {
+                    y = y - 9;
+
+                 //   System.out.println("numero de y impar con resta de :  " + y);
+                }
+
+            } else {
+                y = z;
+               // System.out.println("entro al else con valor " + z);
+            }
+
+            suma += y;
+            //System.out.println("la suma es:  " + suma + "   del digito" + i);
+        }
+        int sumas = suma;
+        suma = (sumas % 10);
+    // System.out.println("+++++++++"+suma+"++++++++++");
+        if (sumas < 150 && suma == 0) {
+            flag = true;
+            
+        } else {
+            flag = false;
+            System.out.println("Tarjeta No valida");
+        }
+        return flag;
+        // TODO code application logic here
+    }
+        
+    //Metodo de validacion del tipo de tarjeta
+    public static int tipo(int tipotarj)
+    {
+        if(tipotarj==4)
+        {
+            System.out.println("Usted ha elegido pagar con VISA");
+            
+        }
+        else
+            if(tipotarj==5)
+            {
+                System.out.println("Usted ha elegido pagar con MASTERCARD");
+            }
+            else
+            {
+                System.out.println("La tarjeta no es VISA ni tampoco Mastercard favor de ingresar un numero valido");
+            }
+                    
+    return tipotarj;
+    }
+
+    
+    
 }

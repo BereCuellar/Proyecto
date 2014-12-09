@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
@@ -16,15 +17,15 @@
             <h:form>
                 <h:panelGrid columns="2">
                     <h:outputLabel value="#{bundle.CreateAdminLabel_nombre}" for="nombre" />
-                    <h:inputText id="nombre" value="#{adminController.selected.nombre}" title="#{bundle.CreateAdminTitle_nombre}" required="true" requiredMessage="#{bundle.CreateAdminRequiredMessage_nombre}"/>
+                    <p:inputText id="nombre" value="#{adminController.selected.nombre}" title="#{bundle.CreateAdminTitle_nombre}" required="true" requiredMessage="#{bundle.CreateAdminRequiredMessage_nombre}"/>
                     <h:outputLabel value="#{bundle.CreateAdminLabel_apellidos}" for="apellidos" />
-                    <h:inputText id="apellidos" value="#{adminController.selected.apellidos}" title="#{bundle.CreateAdminTitle_apellidos}" required="true" requiredMessage="#{bundle.CreateAdminRequiredMessage_apellidos}"/>
+                    <p:inputText id="apellidos" value="#{adminController.selected.apellidos}" title="#{bundle.CreateAdminTitle_apellidos}" required="true" requiredMessage="#{bundle.CreateAdminRequiredMessage_apellidos}"/>
                     <h:outputLabel value="#{bundle.CreateAdminLabel_usuario}" for="usuario" />
-                    <h:inputText id="usuario" value="#{adminController.selected.usuario}" title="#{bundle.CreateAdminTitle_usuario}" required="true" requiredMessage="#{bundle.CreateAdminRequiredMessage_usuario}"/>
+                    <p:inputText id="usuario" value="#{adminController.selected.usuario}" title="#{bundle.CreateAdminTitle_usuario}" required="true" requiredMessage="#{bundle.CreateAdminRequiredMessage_usuario}"/>
                     <h:outputLabel value="#{bundle.CreateAdminLabel_password}" for="password" />
-                    <h:inputText id="password" value="#{adminController.selected.password}" title="#{bundle.CreateAdminTitle_password}" required="true" requiredMessage="#{bundle.CreateAdminRequiredMessage_password}"/>
+                    <p:inputText id="password" value="#{adminController.selected.password}" title="#{bundle.CreateAdminTitle_password}" required="true" requiredMessage="#{bundle.CreateAdminRequiredMessage_password}"/>
                     <h:outputLabel value="#{bundle.CreateAdminLabel_tipo}" for="tipo" />
-                    <h:inputText id="tipo" value="#{adminController.selected.tipo}" title="#{bundle.CreateAdminTitle_tipo}" required="true" requiredMessage="#{bundle.CreateAdminRequiredMessage_tipo}"/>
+                    <p:inputText id="tipo" value="#{adminController.selected.tipo}" title="#{bundle.CreateAdminTitle_tipo}" required="true" requiredMessage="#{bundle.CreateAdminRequiredMessage_tipo}"/>
                 </h:panelGrid>
                 <h:panelGrid columns="3">
                 

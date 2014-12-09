@@ -8,51 +8,50 @@
     </h:head>
     <h:body>
         Cambiar Status
-                <h:panelGroup id="messagePanel" layout="block">
-                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-                </h:panelGroup>
-                <h:form>
-                <h:panelGrid columns="3">
-                    <h:outputLabel value="#{bundle.EditPedidoLabel_id}" for="id" />
-                    <h:outputText value="#{pedidoController.selected.id}"/>
-                    <h:inputHidden id="id" value="#{pedidoController.selected.id}"/>
-                    
-                    <h:outputLabel value="#{bundle.EditPedidoLabel_cantidad}" for="cantidad" />
-                    <h:outputText value="#{pedidoController.selected.cantidad}"/>
-                    <h:inputHidden id="id" value="#{pedidoController.selected.cantidad}"/>
-                           
-                    <h:outputLabel value="#{bundle.EditPedidoLabel_total}" for="total" />
-                    <h:outputText value="#{pedidoController.selected.total}"/>
-                    <h:inputHidden id="id" value="#{pedidoController.selected.total}"/>
-                        
-                    <h:outputLabel value="#{bundle.EditPedidoLabel_fechaentrega}" for="fechaentrega" />
-                    <h:outputText value="#{pedidoController.selected.fechaentrega}">
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
-                    </h:outputText>
-                    <h:inputHidden id="id" value="#{pedidoController.selected.fechaentrega}"/>
-                    
-                    <h:outputLabel value="#{bundle.EditPedidoLabel_numeroconfirma}" for="numeroconfirma" />
-                    <h:outputText value="#{pedidoController.selected.numeroconfirma}"/>
-                    <h:inputHidden id="id" value="#{pedidoController.selected.numeroconfirma}"/>
-                    
-                    <h:outputLabel value="#{bundle.EditPedidoLabel_status}" for="status" />
-                    <h:inputText id="status" value="#{pedidoController.selected.status}" title="#{bundle.EditPedidoTitle_status}" />
-                    
-                    <h:outputLabel value="#{bundle.EditPedidoLabel_clienteMail}" for="clienteMail" />
-                    <h:selectOneMenu id="clienteMail" value="#{pedidoController.selected.clienteMail}" title="#{bundle.EditPedidoTitle_clienteMail}" required="true" requiredMessage="#{bundle.EditPedidoRequiredMessage_clienteMail}">
-                        <f:selectItems value="#{clienteController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
-                </h:panelGrid>
-                <h:commandLink action="#{pedidoController.update}" value="#{bundle.EditPedidoSaveLink}"/>
-                <br />
-                <br />
-                <h:link outcome="View" value="#{bundle.EditPedidoViewLink}"/>
-                <br />
-                <h:commandLink action="#{pedidoController.prepareList}" value="#{bundle.EditPedidoShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.EditPedidoIndexLink}" />
-            </h:form>
+        <h:panelGroup id="messagePanel" layout="block">
+            <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+        </h:panelGroup>
+        <h:form>
+            <h:panelGrid columns="3">
+                <h:outputLabel value="#{bundle.EditPedidoLabel_id}" for="id" />
+                <h:outputText value="#{pedidoController.selected.id}"/>
+                <h:inputHidden id="id" value="#{pedidoController.selected.id}"/>
+
+                <h:outputLabel value="#{bundle.EditPedidoLabel_cantidad}" for="cantidad" />
+                <h:outputText value="#{pedidoController.selected.cantidad}"/>
+                <h:inputHidden id="id" value="#{pedidoController.selected.cantidad}"/>
+
+                <h:outputLabel value="#{bundle.EditPedidoLabel_total}" for="total" />
+                <h:outputText value="#{pedidoController.selected.total}"/>
+                <h:inputHidden id="id" value="#{pedidoController.selected.total}"/>
+
+                <h:outputLabel value="#{bundle.EditPedidoLabel_fechaentrega}" for="fechaentrega" />
+                <h:outputText value="#{pedidoController.selected.fechaentrega}">
+                    <f:convertDateTime pattern="MM/dd/yyyy" />
+                </h:outputText>
+                <h:inputHidden id="id" value="#{pedidoController.selected.fechaentrega}"/>
+
+                <h:outputLabel value="#{bundle.EditPedidoLabel_numeroconfirma}" for="numeroconfirma" />
+                <h:outputText value="#{pedidoController.selected.numeroconfirma}"/>
+                <h:inputHidden id="id" value="#{pedidoController.selected.numeroconfirma}"/>
+
+                <h:outputLabel value="#{bundle.EditPedidoLabel_status}" for="status" />
+                <h:inputText id="status" value="#{pedidoController.selected.status}" title="#{bundle.EditPedidoTitle_status}" />
+
+                <h:outputLabel value="#{bundle.EditPedidoLabel_clienteMail}" for="clienteMail" />
+                <h:selectOneMenu id="clienteMail" value="#{pedidoController.selected.clienteMail}" title="#{bundle.EditPedidoTitle_clienteMail}" required="true" requiredMessage="#{bundle.EditPedidoRequiredMessage_clienteMail}">
+                    <f:selectItems value="#{clienteController.itemsAvailableSelectOne}"/>
+                </h:selectOneMenu>
+            </h:panelGrid>
+            <h:commandLink action="#{pedidoController.update}" value="#{bundle.EditPedidoSaveLink}"/>
+            <br />
+            <br />
+            <h:link outcome="View" value="#{bundle.EditPedidoViewLink}"/>
+            <br />
+            <h:commandLink action="#{pedidoController.prepareList}" value="#{bundle.EditPedidoShowAllLink}" immediate="true"/>
+            <br />
+            <br />
+            <h:link outcome="/index" value="#{bundle.EditPedidoIndexLink}" />
+        </h:form>
     </h:body>
 </html>
-
