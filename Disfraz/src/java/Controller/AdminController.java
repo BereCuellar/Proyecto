@@ -32,12 +32,12 @@ public class AdminController implements Serializable {
     private Sesion.AdminFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
-
-    public AdminController() {
-    }
     
     private List<Admin> lista = new ArrayList();
     private List<Pedido> listaPedido = new ArrayList();
+
+    public AdminController() {
+    }
     
     public String editar() {
         currentPedido = listaPedido.get(0);
