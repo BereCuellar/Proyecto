@@ -3,9 +3,12 @@ package Controller;
 import Entidad.Admin;
 import Controller.util.JsfUtil;
 import Controller.util.PaginationHelper;
+import Entidad.Pedido;
 import Sesion.AdminFacade;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
@@ -23,6 +26,7 @@ import javax.faces.model.SelectItem;
 public class AdminController implements Serializable {
 
     private Admin current;
+    private Pedido currentPedido;
     private DataModel items = null;
     @EJB
     private Sesion.AdminFacade ejbFacade;
@@ -32,46 +36,38 @@ public class AdminController implements Serializable {
     public AdminController() {
     }
     
+    private List<Admin> lista = new ArrayList();
+    private List<Pedido> listaPedido = new ArrayList();
+    
+    public String editar() {
+        currentPedido = listaPedido.get(0);
+        return "actualizar";
+    }
+    
+    public void buscaPedidosPendientes(){
+        listaPedido = ejbFacade.buscaPedidosByStatus("Pendiente");
+    }
+    
+    public void buscaPedidosEntregados(){
+        listaPedido = ejbFacade.buscaPedidosByStatus("Entregado");
+    }
+    
     public String login() {
-        //current es lo leido del form
-        //a es lo consultado
-        System.out.println("-    -    -    -    -");
-        System.out.println("CURRENT");
-        System.out.println(current.getUsuario());
-        System.out.println(current.getPassword());
-        System.out.println(current.getNombre());
-        System.out.println("---------------------");
-        getItems().setRowIndex(0);
-        Admin a;
-        a = (Admin) getItems().getRowData();
-        for(int i = 0; i < getItems().getRowCount(); i++){
-            if(a.getUsuario().equalsIgnoreCase(current.getUsuario())){
-                break;
+        lista = ejbFacade.buscaUsuario(getSelected().getUsuario());
+        if(lista.size() > 0){
+            Admin a = lista.get(0);
+            if(a.getPassword().equals(current.getPassword())){
+                current = a;
+                if(a.getTipo()==1){
+                    return "admin";
+                }else{
+                    return "empleado";
+                }
             }else{
-                getItems().setRowIndex(i+1);
-                a = (Admin) getItems().getRowData();
-            }
-        }
-        System.out.println("---------------------");
-        System.out.println(a.getUsuario());
-        System.out.println(a.getPassword());
-        System.out.println(a.getNombre());
-        System.out.println("-    -    -    -    -");
-        System.out.println(current.getUsuario());
-        System.out.println(current.getPassword());
-        System.out.println(current.getNombre());
-        System.out.println("---------------------");
-        if(a.getPassword().equals(current.getPassword())){
-            current.setNombre(a.getNombre());
-            current.setApellidos(a.getApellidos());
-            current.setTipo(a.getTipo());
-            if(a.getTipo()==1){
-                return "admin";
-            }else{
-                return "empleado";
-            }
+                return "intruso";//Password incorrecto
+            }                
         }else{
-            return "intruso";
+            return "intruso";//Usuario Incorrecto
         }
     }
     
