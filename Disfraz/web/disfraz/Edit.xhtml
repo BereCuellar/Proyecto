@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditDisfrazTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditDisfrazLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{disfrazController.selected.id}" title="#{bundle.EditDisfrazTitle_id}" required="true" requiredMessage="#{bundle.EditDisfrazRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.EditDisfrazLabel_nombre}" for="nombre" />
+                    <h:inputText id="nombre" value="#{disfrazController.selected.nombre}" title="#{bundle.EditDisfrazTitle_nombre}" required="true" requiredMessage="#{bundle.EditDisfrazRequiredMessage_nombre}"/>
+                    <h:outputLabel value="#{bundle.EditDisfrazLabel_talla}" for="talla" />
+                    <h:inputText id="talla" value="#{disfrazController.selected.talla}" title="#{bundle.EditDisfrazTitle_talla}" required="true" requiredMessage="#{bundle.EditDisfrazRequiredMessage_talla}"/>
+                    <h:outputLabel value="#{bundle.EditDisfrazLabel_descripcion}" for="descripcion" />
+                    <h:inputText id="descripcion" value="#{disfrazController.selected.descripcion}" title="#{bundle.EditDisfrazTitle_descripcion}" required="true" requiredMessage="#{bundle.EditDisfrazRequiredMessage_descripcion}"/>
+                    <h:outputLabel value="#{bundle.EditDisfrazLabel_precio}" for="precio" />
+                    <h:inputText id="precio" value="#{disfrazController.selected.precio}" title="#{bundle.EditDisfrazTitle_precio}" required="true" requiredMessage="#{bundle.EditDisfrazRequiredMessage_precio}"/>
+                    <h:outputLabel value="#{bundle.EditDisfrazLabel_existencia}" for="existencia" />
+                    <h:inputText id="existencia" value="#{disfrazController.selected.existencia}" title="#{bundle.EditDisfrazTitle_existencia}" required="true" requiredMessage="#{bundle.EditDisfrazRequiredMessage_existencia}"/>
+                    <h:outputLabel value="#{bundle.EditDisfrazLabel_categoriaId}" for="categoriaId" />
+                    <h:selectOneMenu id="categoriaId" value="#{disfrazController.selected.categoriaId}" title="#{bundle.EditDisfrazTitle_categoriaId}" required="true" requiredMessage="#{bundle.EditDisfrazRequiredMessage_categoriaId}">
+                        <f:selectItems value="#{categoriaController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{disfrazController.update}" value="#{bundle.EditDisfrazSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditDisfrazViewLink}"/>
+                <br />
+                <h:commandLink action="#{disfrazController.prepareList}" value="#{bundle.EditDisfrazShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditDisfrazIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
