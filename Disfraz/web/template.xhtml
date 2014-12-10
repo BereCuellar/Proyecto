@@ -2,21 +2,70 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
 
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title><ui:insert name="title">Default Title</ui:insert></title>
-        <h:outputStylesheet library="css" name="jsfcrud.css"/>
+        <h:outputStylesheet name="css/jsfcrud.css" />
+        <h:outputStylesheet name="assets/css/bootstrap.css" />
+        <h:outputStylesheet name="assets/css/font-awesome.css" />
+        <h:outputStylesheet name="assets/css/custom.css" />
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     </h:head>
 
-    <h:body>
-        <h1>
-            <ui:insert name="title">Default Title</ui:insert>
-        </h1>
-        <p>
-            <ui:insert name="body">Default Body</ui:insert>
-        </p>
-    </h:body>
 
+    <h:body>
+
+        <div id="wrapper">
+            
+            <nav class="navbar-default navbar-side" role="navigation">
+                <div class="sidebar-collapse">
+                    <ul class="nav" id="main-menu">
+                        <li class="text-center">
+                            <p:graphicImage name="assets/img/find_user.png" styleClass="user-image img-responsive"/>
+                        </li>
+                        <li>
+                            <h:link outcome="/admin/List" >Administradores y Empleados</h:link>
+                        </li>
+                        <li>
+                            <h:link outcome="/disfraz/List" >Disfraces</h:link>
+                        </li>
+                        <li>
+                            <h:link outcome="/categoria/List" >Categorias</h:link>
+                        </li>
+                        <li>
+                            <h:link outcome="/cliente/List" >Clientes</h:link>
+                        </li>
+                    </ul>
+                </div>
+            </nav>  
+            <!-- /. NAV SIDE  -->
+            <div id="page-wrapper" >
+                <div id="page-inner">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2><ui:insert name="title">Default Title</ui:insert></h2>   
+                            <h5><ui:insert name="body">Default Body</ui:insert></h5>
+                        </div>
+                    </div>
+                    <!-- /. ROW  -->
+                    <hr />
+                </div>
+                <!-- /. PAGE INNER  -->
+            </div>
+            <!-- /. PAGE WRAPPER  -->
+        </div>
+        <!-- /. WRAPPER  -->
+        <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+        <!-- JQUERY SCRIPTS -->
+        <script src="assets/js/jquery-1.10.2.js"/>
+        <!-- BOOTSTRAP SCRIPTS -->
+        <script src="assets/js/bootstrap.min.js"/>
+        <!-- METISMENU SCRIPTS -->
+        <script src="assets/js/jquery.metisMenu.js"/>
+        <!-- CUSTOM SCRIPTS -->
+        <script src="assets/js/custom.js"/>
+    </h:body>
 </html>

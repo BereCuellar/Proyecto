@@ -1,20 +1,344 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Facelet Title</title>
-        <h:outputStylesheet name="css/jsfcrud.css"/>
+        <title>Tienda de Disfraces</title>
+        <h:outputStylesheet name="css/style.css"/>
+        <h:outputScript library="js" name="jquery-1.4.1.min.js" />
+        <h:outputScript library="js" name="jquery.jcarousel.pack.js" />
+        <h:outputScript library="js" name="jquery.slide.js" />
+        <h:outputScript library="js" name="jquery-func.js" />
     </h:head>
     <h:body>
-       
-        
-        <h:link outcome="/admin/index" value="Pagina de Administrador"/>
+        <!-- Top -->
+        <div id="top">
+            <div class="shell">
+                <!-- Header -->
+                <div id="header">
+                    <h1 id="logo"><h:link outcome="index"/></h1>
+                    <div id="navigation">
+                        <ul>
+                            <li><h:link outcome="index" value="Home"/></li>
+                            <li><h:link outcome="/admin/loginAdmin" value="Pagina de Administrador"/></li>
+                            <li><h:link outcome="/admin/empleado" value="Pagina de Empleado"/></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- End Header -->
+                <!-- Slider -->
+                <div id="slider">
+                    <div id="slider-holder">
+                        <ul>
+                            <li><p:graphicImage name="img/slide1.jpg" styleClass="slide"/></li>
+                            <li><p:graphicImage name="img/slide2.jpg" styleClass="slide"/></li>
+                            <li><p:graphicImage name="img/slide3.jpg" styleClass="slide"/></li>
+                            <li><p:graphicImage name="img/slide4.jpg" styleClass="slide"/></li>
+                        </ul>
+                    </div>
+                    <div id="slider-nav"> <a href="#" class="prev">Previous</a> <a href="#" class="next">Next</a> </div>
+                </div>
+                <!-- End Slider -->
+            </div>
+        </div>
+        <!-- Top -->
+        <!-- Main -->
+        <div id="main">
+            <div class="shell">
+                <!-- Search, etc -->
+                <div class="options">
+                    
+                    <div class="right"> <span class="cart"> <a href="#" class="cart-ico">&nbsp;</a> <strong>$0.00</strong> </span> <span class="left more-links"> <a href="#">Checkout</a> <a href="#">Details</a> </span> </div>
+                </div>
+                <!-- End Search, etc -->
+                <!-- Content -->
+                <div id="content">
+                    <!-- Tabs -->
+                    <div class="tabs">
+                        <ul>
+                            <li><a href="#" class="active"><span>Super Heroes</span></a></li>
+                            <li><a href="#"><span>Ciencia Ficcion</span></a></li>
+                            <li><a href="#" class="red"><span>Infantiles</span></a></li>
+                        </ul>
+                    </div>
+                    <!-- Tabs -->
+                    <!-- Container -->
+                    <div id="container">
+                        <div class="tabbed">
+                            <!-- First Tab Content -->
+                            <div class="tab-content" style="display:block;">
+                                <div class="items">
+                                    <div class="cl">&nbsp;</div>
+                                    <ul>
+                                        <li>
+                                            <div class="image"> <a href="#"><img src="css/images/image1.jpg" alt="" /></a> </div>
+                                            <p> Item Number: <span>125515</span><br />
+                                                Size List : <span>8/8.5/9.5/10/11</span><br />
+                                                Brand Name: <a href="#">Adidas Shoes</a> </p>
+                                            <p class="price">Wholesale Price: <strong>53 USD</strong></p>
+                                        </li>
+                                        <li>
+                                            <div class="image"> <a href="#"><img src="css/images/image2.jpg" alt="" /></a> </div>
+                                            <p> Item Number: <span>125515</span><br />
+                                                Size List : <span>8/8.5/9.5/10/11</span><br />
+                                                Brand Name: <a href="#">Adidas Shoes</a> </p>
+                                            <p class="price">Wholesale Price: <strong>53 USD</strong></p>
+                                        </li>
+                                        <li>
+                                            <div class="image"> <a href="#"><img src="css/images/image3.jpg" alt="" /></a> </div>
+                                            <p> Item Number: <span>125515</span><br />
+                                                Size List : <span>8/8.5/9.5/10/11</span><br />
+                                                Brand Name: <a href="#">Adidas Shoes</a> </p>
+                                            <p class="price">Wholesale Price: <strong>53 USD</strong></p>
+                                        </li>
+                                        <li>
+                                            <div class="image"> <a href="#"><img src="css/images/image4.jpg" alt="" /></a> </div>
+                                            <p> Item Number: <span>125515</span><br />
+                                                Size List : <span>8/8.5/9.5/10/11</span><br />
+                                                Brand Name: <a href="#">Adidas Shoes</a> </p>
+                                            <p class="price">Wholesale Price: <strong>53 USD</strong></p>
+                                        </li>
+                                        <li>
+                                            <div class="image"> <a href="#"><img src="css/images/image4.jpg" alt="" /></a> </div>
+                                            <p> Item Number: <span>125515</span><br />
+                                                Size List : <span>8/8.5/9.5/10/11</span><br />
+                                                Brand Name: <a href="#">Adidas Shoes</a> </p>
+                                            <p class="price">Wholesale Price: <strong>53 USD</strong></p>
+                                        </li>
+                                        <li>
+                                            <div class="image"> <a href="#"><img src="css/images/image3.jpg" alt="" /></a> </div>
+                                            <p> Item Number: <span>125515</span><br />
+                                                Size List : <span>8/8.5/9.5/10/11</span><br />
+                                                Brand Name: <a href="#">Adidas Shoes</a> </p>
+                                            <p class="price">Wholesale Price: <strong>53 USD</strong></p>
+                                        </li>
+                                        <li>
+                                            <div class="image"> <a href="#"><img src="css/images/image2.jpg" alt="" /></a> </div>
+                                            <p> Item Number: <span>125515</span><br />
+                                                Size List : <span>8/8.5/9.5/10/11</span><br />
+                                                Brand Name: <a href="#">Adidas Shoes</a> </p>
+                                            <p class="price">Wholesale Price: <strong>53 USD</strong></p>
+                                        </li>
+                                        <li>
+                                            <div class="image"> <a href="#"><img src="css/images/image1.jpg" alt="" /></a> </div>
+                                            <p> Item Number: <span>125515</span><br />
+                                                Size List : <span>8/8.5/9.5/10/11</span><br />
+                                                Brand Name: <a href="#">Adidas Shoes</a> </p>
+                                            <p class="price">Wholesale Price: <strong>53 USD</strong></p>
+                                        </li>
+                                    </ul>
+                                    <div class="cl">&nbsp;</div>
+                                </div>
+                            </div>
+                            <!-- End First Tab Content -->
+                            <!-- Second Tab Content -->
+                            <div class="tab-content">
+                                <div class="items">
+                                    <div class="cl">&nbsp;</div>
+                                    <ul>
+                                        <li>
+                                            <div class="image"> <a href="#"><img src="css/images/image2.jpg" alt="" /></a> </div>
+                                            <p> Item Number: <span>125515</span><br />
+                                                Size List : <span>8/8.5/9.5/10/11</span><br />
+                                                Brand Name: <a href="#">Adidas Shoes</a> </p>
+                                            <p class="price">Wholesale Price: <strong>53 USD</strong></p>
+                                        </li>
+                                        <li>
+                                            <div class="image"> <a href="#"><img src="css/images/image2.jpg" alt="" /></a> </div>
+                                            <p> Item Number: <span>125515</span><br />
+                                                Size List : <span>8/8.5/9.5/10/11</span><br />
+                                                Brand Name: <a href="#">Adidas Shoes</a> </p>
+                                            <p class="price">Wholesale Price: <strong>53 USD</strong></p>
+                                        </li>
+                                        <li>
+                                            <div class="image"> <a href="#"><img src="css/images/image2.jpg" alt="" /></a> </div>
+                                            <p> Item Number: <span>125515</span><br />
+                                                Size List : <span>8/8.5/9.5/10/11</span><br />
+                                                Brand Name: <a href="#">Adidas Shoes</a> </p>
+                                            <p class="price">Wholesale Price: <strong>53 USD</strong></p>
+                                        </li>
+                                        <li>
+                                            <div class="image"> <a href="#"><img src="css/images/image2.jpg" alt="" /></a> </div>
+                                            <p> Item Number: <span>125515</span><br />
+                                                Size List : <span>8/8.5/9.5/10/11</span><br />
+                                                Brand Name: <a href="#">Adidas Shoes</a> </p>
+                                            <p class="price">Wholesale Price: <strong>53 USD</strong></p>
+                                        </li>
+                                        <li>
+                                            <div class="image"> <a href="#"><img src="css/images/image1.jpg" alt="" /></a> </div>
+                                            <p> Item Number: <span>125515</span><br />
+                                                Size List : <span>8/8.5/9.5/10/11</span><br />
+                                                Brand Name: <a href="#">Adidas Shoes</a> </p>
+                                            <p class="price">Wholesale Price: <strong>53 USD</strong></p>
+                                        </li>
+                                        <li>
+                                            <div class="image"> <a href="#"><img src="css/images/image1.jpg" alt="" /></a> </div>
+                                            <p> Item Number: <span>125515</span><br />
+                                                Size List : <span>8/8.5/9.5/10/11</span><br />
+                                                Brand Name: <a href="#">Adidas Shoes</a> </p>
+                                            <p class="price">Wholesale Price: <strong>53 USD</strong></p>
+                                        </li>
+                                        <li>
+                                            <div class="image"> <a href="#"><img src="css/images/image1.jpg" alt="" /></a> </div>
+                                            <p> Item Number: <span>125515</span><br />
+                                                Size List : <span>8/8.5/9.5/10/11</span><br />
+                                                Brand Name: <a href="#">Adidas Shoes</a> </p>
+                                            <p class="price">Wholesale Price: <strong>53 USD</strong></p>
+                                        </li>
+                                        <li>
+                                            <div class="image"> <a href="#"><img src="css/images/image1.jpg" alt="" /></a> </div>
+                                            <p> Item Number: <span>125515</span><br />
+                                                Size List : <span>8/8.5/9.5/10/11</span><br />
+                                                Brand Name: <a href="#">Adidas Shoes</a> </p>
+                                            <p class="price">Wholesale Price: <strong>53 USD</strong></p>
+                                        </li>
+                                    </ul>
+                                    <div class="cl">&nbsp;</div>
+                                </div>
+                            </div>
+                            <!-- End Second Tab Content -->
+                            <!-- Third Tab Content -->
+                            <div class="tab-content">
+                                <div class="items">
+                                    <div class="cl">&nbsp;</div>
+                                    <ul>
+                                        <li>
+                                            <div class="image"> <a href="#"><img src="css/images/image3.jpg" alt="" /></a> </div>
+                                            <p> Item Number: <span>125515</span><br />
+                                                Size List : <span>8/8.5/9.5/10/11</span><br />
+                                                Brand Name: <a href="#">Adidas Shoes</a> </p>
+                                            <p class="price">Wholesale Price: <strong>53 USD</strong></p>
+                                        </li>
+                                        <li>
+                                            <div class="image"> <a href="#"><img src="css/images/image3.jpg" alt="" /></a> </div>
+                                            <p> Item Number: <span>125515</span><br />
+                                                Size List : <span>8/8.5/9.5/10/11</span><br />
+                                                Brand Name: <a href="#">Adidas Shoes</a> </p>
+                                            <p class="price">Wholesale Price: <strong>53 USD</strong></p>
+                                        </li>
+                                        <li>
+                                            <div class="image"> <a href="#"><img src="css/images/image3.jpg" alt="" /></a> </div>
+                                            <p> Item Number: <span>125515</span><br />
+                                                Size List : <span>8/8.5/9.5/10/11</span><br />
+                                                Brand Name: <a href="#">Adidas Shoes</a> </p>
+                                            <p class="price">Wholesale Price: <strong>53 USD</strong></p>
+                                        </li>
+                                        <li>
+                                            <div class="image"> <a href="#"><img src="css/images/image3.jpg" alt="" /></a> </div>
+                                            <p> Item Number: <span>125515</span><br />
+                                                Size List : <span>8/8.5/9.5/10/11</span><br />
+                                                Brand Name: <a href="#">Adidas Shoes</a> </p>
+                                            <p class="price">Wholesale Price: <strong>53 USD</strong></p>
+                                        </li>
+                                        <li>
+                                            <div class="image"> <a href="#"><img src="css/images/image4.jpg" alt="" /></a> </div>
+                                            <p> Item Number: <span>125515</span><br />
+                                                Size List : <span>8/8.5/9.5/10/11</span><br />
+                                                Brand Name: <a href="#">Adidas Shoes</a> </p>
+                                            <p class="price">Wholesale Price: <strong>53 USD</strong></p>
+                                        </li>
+                                        <li>
+                                            <div class="image"> <a href="#"><img src="css/images/image4.jpg" alt="" /></a> </div>
+                                            <p> Item Number: <span>125515</span><br />
+                                                Size List : <span>8/8.5/9.5/10/11</span><br />
+                                                Brand Name: <a href="#">Adidas Shoes</a> </p>
+                                            <p class="price">Wholesale Price: <strong>53 USD</strong></p>
+                                        </li>
+                                        <li>
+                                            <div class="image"> <a href="#"><img src="css/images/image4.jpg" alt="" /></a> </div>
+                                            <p> Item Number: <span>125515</span><br />
+                                                Size List : <span>8/8.5/9.5/10/11</span><br />
+                                                Brand Name: <a href="#">Adidas Shoes</a> </p>
+                                            <p class="price">Wholesale Price: <strong>53 USD</strong></p>
+                                        </li>
+                                        <li>
+                                            <div class="image"> <a href="#"><img src="css/images/image4.jpg" alt="" /></a> </div>
+                                            <p> Item Number: <span>125515</span><br />
+                                                Size List : <span>8/8.5/9.5/10/11</span><br />
+                                                Brand Name: <a href="#">Adidas Shoes</a> </p>
+                                            <p class="price">Wholesale Price: <strong>53 USD</strong></p>
+                                        </li>
+                                        <li>
+                                            <div class="image"> <a href="#"><img src="css/images/image2.jpg" alt="" /></a> </div>
+                                            <p> Item Number: <span>125515</span><br />
+                                                Size List : <span>8/8.5/9.5/10/11</span><br />
+                                                Brand Name: <a href="#">Adidas Shoes</a> </p>
+                                            <p class="price">Wholesale Price: <strong>53 USD</strong></p>
+                                        </li>
+                                        <li>
+                                            <div class="image"> <a href="#"><img src="css/images/image2.jpg" alt="" /></a> </div>
+                                            <p> Item Number: <span>125515</span><br />
+                                                Size List : <span>8/8.5/9.5/10/11</span><br />
+                                                Brand Name: <a href="#">Adidas Shoes</a> </p>
+                                            <p class="price">Wholesale Price: <strong>53 USD</strong></p>
+                                        </li>
+                                        <li>
+                                            <div class="image"> <a href="#"><img src="css/images/image2.jpg" alt="" /></a> </div>
+                                            <p> Item Number: <span>125515</span><br />
+                                                Size List : <span>8/8.5/9.5/10/11</span><br />
+                                                Brand Name: <a href="#">Adidas Shoes</a> </p>
+                                            <p class="price">Wholesale Price: <strong>53 USD</strong></p>
+                                        </li>
+                                        <li>
+                                            <div class="image"> <a href="#"><img src="css/images/image2.jpg" alt="" /></a> </div>
+                                            <p> Item Number: <span>125515</span><br />
+                                                Size List : <span>8/8.5/9.5/10/11</span><br />
+                                                Brand Name: <a href="#">Adidas Shoes</a> </p>
+                                            <p class="price">Wholesale Price: <strong>53 USD</strong></p>
+                                        </li>
+                                        <li>
+                                            <div class="image"> <a href="#"><img src="css/images/image1.jpg" alt="" /></a> </div>
+                                            <p> Item Number: <span>125515</span><br />
+                                                Size List : <span>8/8.5/9.5/10/11</span><br />
+                                                Brand Name: <a href="#">Adidas Shoes</a> </p>
+                                            <p class="price">Wholesale Price: <strong>53 USD</strong></p>
+                                        </li>
+                                        <li>
+                                            <div class="image"> <a href="#"><img src="css/images/image1.jpg" alt="" /></a> </div>
+                                            <p> Item Number: <span>125515</span><br />
+                                                Size List : <span>8/8.5/9.5/10/11</span><br />
+                                                Brand Name: <a href="#">Adidas Shoes</a> </p>
+                                            <p class="price">Wholesale Price: <strong>53 USD</strong></p>
+                                        </li>
+                                        <li>
+                                            <div class="image"> <a href="#"><img src="css/images/image1.jpg" alt="" /></a> </div>
+                                            <p> Item Number: <span>125515</span><br />
+                                                Size List : <span>8/8.5/9.5/10/11</span><br />
+                                                Brand Name: <a href="#">Adidas Shoes</a> </p>
+                                            <p class="price">Wholesale Price: <strong>53 USD</strong></p>
+                                        </li>
+                                        <li>
+                                            <div class="image"> <a href="#"><img src="css/images/image1.jpg" alt="" /></a> </div>
+                                            <p> Item Number: <span>125515</span><br />
+                                                Size List : <span>8/8.5/9.5/10/11</span><br />
+                                                Brand Name: <a href="#">Adidas Shoes</a> </p>
+                                            <p class="price">Wholesale Price: <strong>53 USD</strong></p>
+                                        </li>
+                                    </ul>
+                                    <div class="cl">&nbsp;</div>
+                                </div>
+                            </div>
+                            <!-- End Third Tab Content -->
+                        </div>
+                        <!-- Brands -->
+                        <div class="brands">
+                            <h3>Brands</h3>
+                            <div class="logos"><p:graphicImage name="img/redes.png"  styleClass="logos"/></div>
+                        </div>
+                        <!-- End Brands -->
+                        <!-- Footer -->
+                        <div id="footer">
+                            <div class="right"> &copy; Disfraces.com. Design by BeRe-NiCe </div>
+                        </div>
+                        <!-- End Footer -->
+                    </div>
+                    <!-- End Container -->
+                </div>
+                <!-- End Content -->
+            </div>
+        </div>
+        <!-- End Main -->
     </h:body>
-
-
-
-
-
 </html>
 

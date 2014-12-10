@@ -5,54 +5,71 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Facelet Title</title>
-        <h:outputStylesheet name="css/estilosadmin.css" />
+        <title>Panel Administrador</title>
+        <h:outputStylesheet name="assets/css/bootstrap.css" />
+        <h:outputStylesheet name="assets/css/font-awesome.css" />
+        <h:outputStylesheet name="assets/css/custom.css" />
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     </h:head>
     <h:body>
-        <p:layout fullPage="true" styleClass="templateLayout">
-            <p:layoutUnit position="north" size="50" header="Bienvenido al Panel de Administracion" />
-            <p:layoutUnit position="south" size="120" >
-                <p:graphicImage name="img/footer.png" styleClass="footer" />
-            </p:layoutUnit>
-            <p:layoutUnit position="west" size="271" >
-                <p:panelGrid columns="2">
-                    <f:facet name="header">
-                        <p:graphicImage name="img/user.png" />
-                    </f:facet>
-                    <h:outputText value="Nombre:" />
-                    <h:outputText value="#{adminController.selected.nombre}" />
-                    <h:outputText value="Apellidos:" />
-                    <h:outputText value="#{adminController.selected.apellidos}" />
-                </p:panelGrid>
-            </p:layoutUnit>
-            <p:layoutUnit position="center">
-                <div class="ui-grid ui-grid-responsive">
-                    <div class="ui-grid-row">
-                        <div class="ui-grid-col-4">
-                            <p:panel header="Administrar">
-                                <h:link outcome="/admin/List" ><p:graphicImage name="img/admin.PNG"/></h:link>
-                            </p:panel>
-                        </div>
-                        <div class="ui-grid-col-4">
-                            <p:panel header="Ctegorias Disfraz">
-                                <h:link outcome="/categoria/List" ><p:graphicImage name="img/admin.PNG"/></h:link>
-                            </p:panel>
-                        </div>
-                    </div>
-                    <div class="ui-grid-row">
-                        <div class="ui-grid-col-4">
-                            <p:panel  header="Administrar Clientes">
-                                <h:link outcome="/cliente/List" ><p:graphicImage name="img/admin.PNG"/></h:link>
-                            </p:panel>
-                        </div>
-                        <div class="ui-grid-col-4">
-                            <p:panel  header="Administrar Disfraces">
-                                <h:link outcome="/disfraz/List" ><p:graphicImage name="img/admin.PNG"/></h:link>
-                            </p:panel>
-                        </div>
-                    </div>
+        <div id="wrapper">
+            <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header">
+                    <h:link outcome="admin" styleClass="navbar-brand" >#{adminController.selected.nombre} #{adminController.selected.apellidos}</h:link>
                 </div>
-            </p:layoutUnit>
-        </p:layout>
+                <div style="color: white;
+                     padding: 15px 50px 5px 50px;
+                     float: right;
+                     font-size: 16px;">
+                    <h:link outcome="index" styleClass="btn btn-danger square-btn-adjust" >Cerrar Sesion</h:link> </div>
+            </nav>   
+            <!-- /. NAV TOP  -->
+            <nav class="navbar-default navbar-side" role="navigation">
+                <div class="sidebar-collapse">
+                    <ul class="nav" id="main-menu">
+                        <li class="text-center">
+                            <p:graphicImage name="assets/img/find_user.png" styleClass="user-image img-responsive"/>
+                        </li>
+                        <li>
+                            <h:link outcome="/admin/List" >Administradores y Empleados</h:link>
+                        </li>
+                        <li>
+                            <h:link outcome="/disfraz/List" >Disfraces</h:link>
+                        </li>
+                        <li>
+                            <h:link outcome="/categoria/List" >Categorias</h:link>
+                        </li>
+                        <li>
+                            <h:link outcome="/cliente/List" >Clientes</h:link>
+                        </li>
+                    </ul>
+                </div>
+            </nav>  
+            <!-- /. NAV SIDE  -->
+            <div id="page-wrapper" >
+                <div id="page-inner">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2>Bienvenido</h2>   
+                            <h5>Elige una tarea</h5>
+                        </div>
+                    </div>
+                    <!-- /. ROW  -->
+                    <hr />
+                </div>
+                <!-- /. PAGE INNER  -->
+            </div>
+            <!-- /. PAGE WRAPPER  -->
+        </div>
+        <!-- /. WRAPPER  -->
+        <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+        <!-- JQUERY SCRIPTS -->
+        <script src="assets/js/jquery-1.10.2.js"/>
+        <!-- BOOTSTRAP SCRIPTS -->
+        <script src="assets/js/bootstrap.min.js"/>
+        <!-- METISMENU SCRIPTS -->
+        <script src="assets/js/jquery.metisMenu.js"/>
+        <!-- CUSTOM SCRIPTS -->
+        <script src="assets/js/custom.js"/>
     </h:body>
 </html>
