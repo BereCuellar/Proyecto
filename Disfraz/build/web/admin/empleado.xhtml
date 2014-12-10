@@ -5,63 +5,71 @@
       xmlns:f="http://java.sun.com/jsf/core">
     <h:head>
         <title>Facelet Title</title>
-        <h:outputStylesheet name="css/login.css" />
+        <h:outputStylesheet name="css/empleado.css" />
     </h:head>
     <h:body>
-        <h2>Bienvenido empleado #{adminController.selected.nombre}</h2>
-        <p style="color:blue;">Seleccione una tarea.</p>
-            
-            <h:form styleClass="jsfcrud_list_form">
+        <div class="gris">
+            <h2>Bienvenido #{adminController.selected.nombre}</h2>
+            <p style="color:blue;">Seleccione una tarea:</p>
+            <div style="text-align: left;">
+                <h:form>
+                    <h:commandLink action="#{pedidoController.buscaPedidosPendientes()}" value="Pedidos Pendientes"/>
+                    <br />
+                    <h:commandLink action="#{pedidoController.buscaPedidosEntregados()}" value="Pedidos Entregados"/>
+                </h:form>
+            </div>
+        </div>
+        <br />
+        <br />
+        <h:panelGroup rendered="#{pedidoController.items.rowCount > 0}">
+            <h:form>
                 <h:panelGroup id="messagePanel" layout="block">
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
                 </h:panelGroup>
-                <h:outputText escape="false" value="#{bundle.ListPedidoEmpty}" rendered="#{pedidoController.items.rowCount == 0}"/>
-                <h:panelGroup rendered="#{pedidoController.items.rowCount > 0}">
-                    <h:outputText value="#{pedidoController.pagination.pageFirstItem + 1}..#{pedidoController.pagination.pageLastItem + 1}/#{pedidoController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{pedidoController.previous}" value="#{bundle.Previous} #{pedidoController.pagination.pageSize}" rendered="#{pedidoController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{pedidoController.next}" value="#{bundle.Next} #{pedidoController.pagination.pageSize}" rendered="#{pedidoController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{pedidoController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                <h:panelGroup>
+                    <h:dataTable value="#{pedidoController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rules="all" class="tabla">
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListPedidoTitle_id}"/>
+                                <h:outputText value="ID"/>
                             </f:facet>
                             <h:outputText value="#{item.id}"/>
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListPedidoTitle_cantidad}"/>
+                                <h:outputText value="Cantidad"/>
                             </f:facet>
                             <h:outputText value="#{item.cantidad}"/>
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListPedidoTitle_total}"/>
+                                <h:outputText value="Total"/>
                             </f:facet>
                             <h:outputText value="#{item.total}"/>
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListPedidoTitle_fechaentrega}"/>
+                                <h:outputText value="Fecha de entrega"/>
                             </f:facet>
+                            <h:outputText value="No disponible" rendered="#{item.fechaentrega == null}"/>
                             <h:outputText value="#{item.fechaentrega}">
                                 <f:convertDateTime pattern="MM/dd/yyyy" />
                             </h:outputText>
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListPedidoTitle_numeroconfirma}"/>
+                                <h:outputText value="Numero Confirmación"/>
                             </f:facet>
                             <h:outputText value="#{item.numeroconfirma}"/>
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListPedidoTitle_status}"/>
+                                <h:outputText value="Status"/>
                             </f:facet>
                             <h:outputText value="#{item.status}"/>
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListPedidoTitle_clienteMail}"/>
+                                <h:outputText value="Cliente Mail"/>
                             </f:facet>
                             <h:outputText value="#{item.clienteMail}"/>
                         </h:column>
@@ -69,17 +77,15 @@
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:commandLink action="#{pedidoController.prepareView}" value="#{bundle.ListPedidoViewLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{pedidoController.prepareEdit()}" value="#{bundle.ListPedidoEditLink}"/>
+                            <h:commandLink action="#{pedidoController.editar()}" value="Actualizar"/>
                         </h:column>
                     </h:dataTable>
                 </h:panelGroup>
                 <br />
                 <br />
                 <br />
-                <h:link outcome="/index" value="#{bundle.ListPedidoIndexLink}"/>
             </h:form>
-        
+        </h:panelGroup>        
     </h:body>
 </html>
